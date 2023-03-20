@@ -32,7 +32,6 @@ const options = yargs
         .option("g", { alias: "globals", describe: "Global variables file path", type: "string"})
         .option("i", { alias: "iterationCount", describe: "Iteration count"})
         .option("r", { alias: "remove", describe: "To remove the files from reporting directory"})
-        .option("v", { alias: "version", describe: "Current version for the newman-run package"})
         .check(argv => { if(argv.f == undefined && argv.c == undefined && argv.r == undefined) { console.log(file_error_message); return false } else { return true }})
         .argv
 
@@ -41,7 +40,7 @@ const NC = new NewmanConfig()
 if (options.remove) {
     NC.clearResultsFolder()
 }
-if (options.version) {
+if (options.versioning) {
     console.log(version)
 }
 if (options.feed != undefined) {
